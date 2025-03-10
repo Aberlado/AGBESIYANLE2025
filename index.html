@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agbesiyanle 2025</title>
+    <style>
+        /* Styles pour le visuel */
+        #container {
+            position: relative;
+            width: 1080px;
+            height: 1080px;
+            background-image: url('visuel_de_base.png');
+            background-size: cover;
+        }
+
+        #userImage {
+            position: absolute;
+            top: 81px; /* Positionnement Y de la zone rouge */
+            left: 474px; /* Positionnement X de la zone rouge */
+            width: 532px; /* Largeur de la zone rouge */
+            height: 725px; /* Hauteur de la zone rouge */
+            object-fit: cover; /* Pour que l'image s'adapte bien à la zone */
+        }
+
+        #uploadForm {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="file"] {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenue à la campagne de participation Agbesiyanle 2025</h1>
+    <p>Veuillez télécharger votre photo pour l'ajuster à notre visuel !</p>
+
+    <div id="uploadForm">
+        <input type="file" id="photoInput" accept="image/*" />
+        <button onclick="loadImage()">Télécharger la photo</button>
+    </div>
+
+    <div id="container">
+        <!-- Image de l'utilisateur sera affichée ici après téléchargement -->
+        <img id="userImage" style="display: none;" />
+    </div>
+
+    <script>
+        // Fonction qui charge l'image téléchargée
+        function loadImage() {
+            const fileInput = document.getElementById('photoInput');
+            const userImage = document.getElementById('userImage');
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    // Afficher l'image téléchargée et la redimensionner
+                    userImage.src = e.target.result;
+                    userImage.style.display = 'block'; // Afficher l'image
+                };
+
+                // Lire le fichier comme une URL de données
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>

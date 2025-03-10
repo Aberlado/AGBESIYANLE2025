@@ -16,11 +16,12 @@ document.getElementById("fileInput").addEventListener("change", function(event) 
                 userPhoto.src = img.src;
 
                 // Ajuster la photo pour qu'elle s'adapte au cadre
-                userPhoto.style.width = "100%";  // Ajuste la taille de l'image
-                userPhoto.style.height = "100%"; // Ajuste la taille de l'image
+                userPhoto.style.width = "100%";  // Ajuste la taille de l'image à la taille du cadre
+                userPhoto.style.height = "100%"; // Ajuste la hauteur de l'image
                 userPhoto.style.objectFit = "cover";  // Cela permet de couvrir entièrement le cadre sans déformer l'image
                 userPhoto.style.objectPosition = "center"; // Centrer l'image dans le cadre
-                
+
+                // Ajouter la photo au conteneur
                 photoContainer.appendChild(userPhoto);
             };
         };

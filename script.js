@@ -36,11 +36,17 @@ document.getElementById("downloadBtn").addEventListener("click", function() {
     const visual = document.getElementById("visual");
     const photoContainer = document.getElementById("photoContainer");
 
+    // Vérifier que l'image de base est bien chargée
+    if (!visual.complete || !photoContainer.querySelector("img")) {
+        alert("L'image ou le visuel n'a pas été chargé correctement.");
+        return;
+    }
+
     // Définir la taille du canevas en fonction de l'image de base
     canvas.width = visual.width;
     canvas.height = visual.height;
 
-    // Dessiner le visuel de base
+    // Dessiner le visuel de base sur le canevas
     context.drawImage(visual, 0, 0, canvas.width, canvas.height);
 
     // Dessiner la photo de l'utilisateur dans le cadre
@@ -50,8 +56,8 @@ document.getElementById("downloadBtn").addEventListener("click", function() {
         const photoY = photoContainer.offsetTop;
         const photoWidth = photoContainer.offsetWidth;
         const photoHeight = photoContainer.offsetHeight;
-        
-        // Dessiner la photo ajustée
+
+        // Dessiner la photo ajustée dans le cadre
         context.drawImage(userPhoto, photoX, photoY, photoWidth, photoHeight);
     }
 

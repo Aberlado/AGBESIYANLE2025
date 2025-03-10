@@ -12,7 +12,7 @@ body {
     margin: 0 auto;
 }
 
-/* Le visuel source de campagne */
+/* Le visuel de base de campagne */
 .campaign-visual {
     position: relative; /* Position relative pour pouvoir positionner le conteneur photo par rapport à cet élément */
     display: inline-block;
@@ -20,7 +20,7 @@ body {
     max-width: 600px;
 }
 
-/* Le visuel de base */
+/* Le visuel de base (image de fond) */
 #visual {
     width: 100%;
     height: auto; /* Laisser l'image se redimensionner tout en conservant ses proportions */
@@ -28,7 +28,7 @@ body {
 
 /* Le cadre de la photo à ajuster */
 #photoContainer {
-    position: absolute; /* Positionné par rapport au visuel de base */
+    position: absolute;  /* Positionné par rapport au visuel de base */
     top: 81px;  /* Position du cadre depuis le haut du visuel (Y:81px) */
     left: 474px;  /* Position du cadre depuis la gauche du visuel (X:474px) */
     width: 532px;  /* Largeur du cadre photo (532px) */
@@ -36,17 +36,19 @@ body {
     overflow: hidden;  /* Empêche l'image de déborder du cadre */
     border-radius: 5px;  /* Si tu veux un cadre avec des bords arrondis */
     border: 3px solid white; /* Bordure du cadre */
+    z-index: 1; /* Assure que le cadre est visible au-dessus du visuel de base */
 }
 
 /* Style pour l'image téléchargée dans le cadre */
 #photoContainer img {
-    position: absolute;  /* Positionne l'image à l'intérieur du cadre */
+    position: absolute;  /* Assure que l'image se positionne dans le conteneur */
     top: 0;
     left: 0;
     width: 100%; /* L'image occupe toute la largeur du cadre */
     height: 100%; /* L'image occupe toute la hauteur du cadre */
     object-fit: cover; /* Permet à l'image de remplir le cadre sans déformation */
     object-position: center; /* Centrer l'image dans le cadre */
+    z-index: 0; /* L'image doit être en dessous du cadre */
 }
 
 /* Bouton de téléchargement */

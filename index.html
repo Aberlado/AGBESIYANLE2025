@@ -12,6 +12,7 @@
             height: 1080px;
             background-image: url('visuel_de_base.png');
             background-size: cover;
+            margin-bottom: 20px;
         }
 
         #userImage {
@@ -23,6 +24,12 @@
             object-fit: cover; /* Pour que l'image s'adapte bien à la zone */
         }
 
+        #importedImage {
+            width: 80%; /* Taille de la photo affichée en dessous du visuel de base */
+            margin-top: 20px;
+            display: none;
+        }
+
         #uploadForm {
             text-align: center;
             margin-top: 20px;
@@ -30,6 +37,20 @@
 
         input[type="file"] {
             margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #5f3076;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #4f2561;
         }
     </style>
 </head>
@@ -39,32 +60,89 @@
 
     <div id="uploadForm">
         <input type="file" id="photoInput" accept="image/*" />
-        <button onclick="loadImage()">Télécharger la photo</button>
+        <button onclick="loadImage()">Importer</button>
     </div>
 
     <div id="container">
-        <!-- Image de l'utilisateur sera affichée ici après téléchargement -->
+        <!-- Visuel de base avec la zone rouge -->
         <img id="userImage" style="display: none;" />
     </div>
 
+    <div id="importedImage">
+        <!-- Photo téléchargée en dessous du visuel de base -->
+        <h3>Votre image importée :</h3>
+        <img id="finalImagePreview" />
+    </div>
+
+    <div id="downloadBtnContainer" style="text-align: center; display: none;">
+        <!-- Bouton pour télécharger l'image finale personnalisée -->
+        <button onclick="downloadFinalImage()">Télécharger le visuel final</button>
+    </div>
+
     <script>
+        let userImage = null;
+
         // Fonction qui charge l'image téléchargée
         function loadImage() {
             const fileInput = document.getElementById('photoInput');
-            const userImage = document.getElementById('userImage');
+            const userImageElement = document.getElementById('userImage');
+            const finalImagePreview = document.getElementById('finalImagePreview');
+            const importedImageDiv = document.getElementById('importedImage');
+            const downloadBtnContainer = document.getElementById('downloadBtnContainer');
 
             if (fileInput.files && fileInput.files[0]) {
                 const reader = new FileReader();
 
                 reader.onload = function(e) {
                     // Afficher l'image téléchargée et la redimensionner
-                    userImage.src = e.target.result;
-                    userImage.style.display = 'block'; // Afficher l'image
+                    userImageElement.src = e.target.result;
+                    userImageElement.style.display = 'block'; // Afficher l'image dans la zone rouge
+                    importedImageDiv.style.display = 'block'; // Afficher l'image en dessous du visuel de base
+
+                    // Afficher la photo en dessous du visuel de base
+                    finalImagePreview.src = e.target.result;
+                    finalImagePreview.style.display = 'block'; // Afficher l'image prévisualisée
+
+                    // Afficher le bouton de téléchargement
+                    downloadBtnContainer.style.display = 'block';
+
+                    // Stocker l'image pour la modification future
+                    userImage = e.target.result;
                 };
 
                 // Lire le fichier comme une URL de données
                 reader.readAsDataURL(fileInput.files[0]);
             }
+        }
+
+        // Fonction pour télécharger le visuel final personnalisé
+        function downloadFinalImage() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            // Créer un image de base
+            const baseImage = new Image();
+            baseImage.src = 'visuel_de_base.png';
+
+            baseImage.onload = function() {
+                canvas.width = 1080;
+                canvas.height = 1080;
+                ctx.drawImage(baseImage, 0, 0);
+
+                // Ajouter l'image de l'utilisateur sur le visuel de base
+                const userImageElement = new Image();
+                userImageElement.src = userImage;
+                userImageElement.onload = function() {
+                    ctx.drawImage(userImageElement, 474, 81, 532, 725); // Position et taille de l'image
+
+                    // Créer un lien pour télécharger l'image
+                    const finalImage = canvas.toDataURL('image/png');
+                    const link = document.createElement('a');
+                    link.href = finalImage;
+                    link.download = 'visuel_final_personnalise.png';
+                    link.click();
+                };
+            };
         }
     </script>
 </body>

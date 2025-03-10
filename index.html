@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campagne de Participation - AGBESIYANLE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Participez à la campagne de l'AGBESIYANLE 2025 !</h2>
+        
+        <p>Uploadez votre photo pour personnaliser votre visuel de campagne :</p>
+        
+        <!-- Formulaire pour télécharger l'image -->
+        <input type="file" id="fileInput" accept="image/*">
+        
+        <!-- L'image de base du visuel -->
+        <div class="campaign-visual">
+            <img src="visuel_de_base.jpg" id="visual" alt="Visuel de campagne">
+            <div id="photoContainer">
+                <!-- La photo de l'utilisateur sera ajustée ici -->
+            </div>
+        </div>
+        
+        <!-- Bouton pour télécharger le visuel final -->
+        <button id="downloadBtn">Télécharger votre visuel</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

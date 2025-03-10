@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.campaign-visual {
+    position: relative;
+    display: inline-block;
+}
+
+#visual {
+    width: 100%;
+    max-width: 500px;
+}
+
+#photoContainer {
+    position: absolute;
+    top: 30%; /* Ajustez cette valeur pour l'emplacement de la photo */
+    left: 40%; /* Ajustez cette valeur pour l'emplacement de la photo */
+    width: 100px; /* Largeur de la photo */
+    height: 100px; /* Hauteur de la photo */
+    overflow: hidden;
+    border-radius: 50%; /* Si tu veux un cercle pour la photo */
+    border: 3px solid white;
+}
+
+#downloadBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

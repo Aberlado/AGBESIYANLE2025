@@ -31,8 +31,8 @@ body {
     position: absolute;  /* Positionné par rapport au visuel de base */
     top: 81px;  /* Position du cadre depuis le haut du visuel (Y:81px) */
     left: 474px;  /* Position du cadre depuis la gauche du visuel (X:474px) */
-    width: 532px;  /* Largeur du cadre photo (532px) */
-    height: 725px; /* Hauteur du cadre photo (725px) */
+    width: 531px;  /* Largeur du cadre photo (531px) */
+    height: 724px; /* Hauteur du cadre photo (724px) */
     overflow: hidden;  /* Empêche l'image de déborder du cadre */
     border-radius: 5px;  /* Si tu veux un cadre avec des bords arrondis */
     border: 3px solid white; /* Bordure du cadre */

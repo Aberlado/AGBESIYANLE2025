@@ -10,17 +10,20 @@ document.getElementById("fileInput").addEventListener("change", function(event) 
             img.onload = function() {
                 const photoContainer = document.getElementById("photoContainer");
                 photoContainer.innerHTML = ''; // Clear any previous photo
-                
+
                 // Créer un élément img pour la photo de l'utilisateur
                 const userPhoto = document.createElement("img");
                 userPhoto.src = img.src;
 
-                // Ajuster la photo pour qu'elle s'adapte au cadre
-                userPhoto.style.width = "100%";  // Ajuste la taille de l'image
-                userPhoto.style.height = "100%"; // Ajuste la taille de l'image
-                userPhoto.style.objectFit = "cover";  // Cela permet de couvrir entièrement le cadre sans déformation
+                // Ajuster l'image pour qu'elle s'adapte au cadre
+                userPhoto.style.position = "absolute";  // Positionner l'image dans le cadre
+                userPhoto.style.top = "0";
+                userPhoto.style.left = "0";
+                userPhoto.style.width = "100%";  // L'image doit occuper toute la largeur du cadre
+                userPhoto.style.height = "100%"; // L'image doit occuper toute la hauteur du cadre
+                userPhoto.style.objectFit = "cover";  // Permet à l'image de couvrir entièrement le cadre sans déformation
                 userPhoto.style.objectPosition = "center"; // Centrer l'image dans le cadre
-                
+
                 // Ajouter la photo au conteneur
                 photoContainer.appendChild(userPhoto);
             };
@@ -53,6 +56,7 @@ document.getElementById("downloadBtn").addEventListener("click", function() {
     // Dessiner la photo de l'utilisateur dans le cadre
     const userPhoto = photoContainer.querySelector("img");
     if (userPhoto) {
+        // Récupérer la position du cadre et la taille de l'image
         const photoX = photoContainer.offsetLeft;
         const photoY = photoContainer.offsetTop;
         const photoWidth = photoContainer.offsetWidth;

@@ -114,14 +114,14 @@
                 canvas.width = 1080;
                 canvas.height = 1080;
 
-                // Dessiner l'image de base en premier
+                // Dessiner l'image de base en premier (en arrière-plan)
                 ctx.drawImage(baseImage, 0, 0);
 
                 // Ajouter l'image de l'utilisateur derrière l'image de base
                 const userImageElement = new Image();
                 userImageElement.src = userImage;
                 userImageElement.onload = function() {
-                    // Dessiner l'image importée dans la zone rouge (derrière l'image de base)
+                    // Dessiner l'image importée dans la zone rouge, derrière le visuel de base
                     ctx.drawImage(userImageElement, 474, 81, 532, 725); // Position et taille de l'image
 
                     // Créer un lien pour télécharger l'image finale

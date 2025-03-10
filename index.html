@@ -15,6 +15,7 @@
             margin-bottom: 20px;
         }
 
+        /* Image importée, placée derrière le visuel de base */
         #userImage {
             position: absolute;
             top: 81px; /* Positionnement Y de la zone rouge */
@@ -22,8 +23,8 @@
             width: 532px; /* Largeur de la zone rouge */
             height: 725px; /* Hauteur de la zone rouge */
             object-fit: cover; /* Pour que l'image s'adapte bien à la zone */
-            display: none; /* L'image ne sera visible qu'après importation */
             z-index: -1; /* Placer l'image derrière le visuel de base */
+            display: none; /* L'image ne sera visible qu'après importation */
         }
 
         #uploadForm {
@@ -112,16 +113,18 @@
             baseImage.onload = function() {
                 canvas.width = 1080;
                 canvas.height = 1080;
+
+                // Dessiner l'image de base en premier
                 ctx.drawImage(baseImage, 0, 0);
 
-                // Ajouter l'image de l'utilisateur sur le visuel de base
+                // Ajouter l'image de l'utilisateur derrière l'image de base
                 const userImageElement = new Image();
                 userImageElement.src = userImage;
                 userImageElement.onload = function() {
-                    // Redimensionner et rogner l'image de l'utilisateur pour l'ajuster à la zone rouge
+                    // Dessiner l'image importée dans la zone rouge
                     ctx.drawImage(userImageElement, 474, 81, 532, 725); // Position et taille de l'image
 
-                    // Créer un lien pour télécharger l'image
+                    // Créer un lien pour télécharger l'image finale
                     const finalImage = canvas.toDataURL('image/png');
                     const link = document.createElement('a');
                     link.href = finalImage;

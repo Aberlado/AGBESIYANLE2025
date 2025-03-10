@@ -24,12 +24,6 @@
             object-fit: cover; /* Pour que l'image s'adapte bien à la zone */
         }
 
-        #importedImage {
-            width: 80%; /* Taille de la photo affichée en dessous du visuel de base */
-            margin-top: 20px;
-            display: none;
-        }
-
         #uploadForm {
             text-align: center;
             margin-top: 20px;
@@ -68,12 +62,6 @@
         <img id="userImage" style="display: none;" />
     </div>
 
-    <div id="importedImage">
-        <!-- Photo téléchargée en dessous du visuel de base -->
-        <h3>Votre image importée :</h3>
-        <img id="finalImagePreview" />
-    </div>
-
     <div id="downloadBtnContainer" style="text-align: center; display: none;">
         <!-- Bouton pour télécharger l'image finale personnalisée -->
         <button onclick="downloadFinalImage()">Télécharger le visuel final</button>
@@ -86,8 +74,6 @@
         function loadImage() {
             const fileInput = document.getElementById('photoInput');
             const userImageElement = document.getElementById('userImage');
-            const finalImagePreview = document.getElementById('finalImagePreview');
-            const importedImageDiv = document.getElementById('importedImage');
             const downloadBtnContainer = document.getElementById('downloadBtnContainer');
 
             if (fileInput.files && fileInput.files[0]) {
@@ -97,11 +83,6 @@
                     // Afficher l'image téléchargée et la redimensionner
                     userImageElement.src = e.target.result;
                     userImageElement.style.display = 'block'; // Afficher l'image dans la zone rouge
-                    importedImageDiv.style.display = 'block'; // Afficher l'image en dessous du visuel de base
-
-                    // Afficher la photo en dessous du visuel de base
-                    finalImagePreview.src = e.target.result;
-                    finalImagePreview.style.display = 'block'; // Afficher l'image prévisualisée
 
                     // Afficher le bouton de téléchargement
                     downloadBtnContainer.style.display = 'block';

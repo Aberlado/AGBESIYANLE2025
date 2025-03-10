@@ -29,10 +29,10 @@ body {
 /* Le cadre de la photo à ajuster */
 #photoContainer {
     position: absolute;
-    top: 81px;  /* Position du cadre depuis le haut */
-    left: 474px;  /* Position du cadre depuis la gauche */
-    width: 532px;  /* Largeur du cadre photo */
-    height: 725px; /* Hauteur du cadre photo */
+    top: 81px;  /* Position du cadre depuis le haut du visuel (Y:81px) */
+    left: 474px;  /* Position du cadre depuis la gauche du visuel (X:474px) */
+    width: 532px;  /* Largeur du cadre photo (532px) */
+    height: 725px; /* Hauteur du cadre photo (725px) */
     overflow: hidden;  /* Empêche l'image de déborder du cadre */
     border-radius: 5px;  /* Si tu veux un cadre avec des bords arrondis */
     border: 3px solid white; /* Bordure du cadre */

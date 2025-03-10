@@ -14,7 +14,7 @@ body {
 
 /* Le visuel source de campagne */
 .campaign-visual {
-    position: relative;
+    position: relative; /* Position relative pour pouvoir positionner le conteneur photo par rapport à cet élément */
     display: inline-block;
     width: 100%;  /* Ajuste la largeur à celle de l'élément parent */
     max-width: 600px;
@@ -28,7 +28,7 @@ body {
 
 /* Le cadre de la photo à ajuster */
 #photoContainer {
-    position: absolute;  /* Assure que le cadre est positionné par rapport à l'image de base */
+    position: absolute; /* Positionné par rapport au visuel de base */
     top: 81px;  /* Position du cadre depuis le haut du visuel (Y:81px) */
     left: 474px;  /* Position du cadre depuis la gauche du visuel (X:474px) */
     width: 532px;  /* Largeur du cadre photo (532px) */
@@ -40,13 +40,13 @@ body {
 
 /* Style pour l'image téléchargée dans le cadre */
 #photoContainer img {
-    position: absolute;  /* Assure que l'image se positionne dans le conteneur */
+    position: absolute;  /* Positionne l'image à l'intérieur du cadre */
     top: 0;
     left: 0;
     width: 100%; /* L'image occupe toute la largeur du cadre */
     height: 100%; /* L'image occupe toute la hauteur du cadre */
     object-fit: cover; /* Permet à l'image de remplir le cadre sans déformation */
-    object-position: center; /* Centre l'image dans le cadre */
+    object-position: center; /* Centrer l'image dans le cadre */
 }
 
 /* Bouton de téléchargement */

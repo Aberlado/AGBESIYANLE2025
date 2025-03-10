@@ -25,7 +25,7 @@ document.getElementById("fileInput").addEventListener("change", function(event) 
             };
         };
         
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(file);  // Lecture du fichier image
     }
 });
 
@@ -60,4 +60,12 @@ document.getElementById("downloadBtn").addEventListener("click", function() {
     link.href = canvas.toDataURL("image/png");
     link.download = "visuel_agbesiyanle_2025.png";
     link.click();
+
+    // Afficher le pop-up
+    document.getElementById("popup").style.display = "flex";
+});
+
+// Fermer le pop-up
+document.getElementById("closePopup").addEventListener("click", function() {
+    document.getElementById("popup").style.display = "none";
 });

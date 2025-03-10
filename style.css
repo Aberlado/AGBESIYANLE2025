@@ -1,35 +1,52 @@
+/* Style global pour la page */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
+    background-color: #f4f4f4;
 }
 
+/* Conteneur principal */
 .container {
     max-width: 600px;
     margin: 0 auto;
 }
 
+/* Le visuel source de campagne */
 .campaign-visual {
     position: relative;
     display: inline-block;
+    width: 100%;  /* Ajuste la largeur à celle de l'élément parent */
+    max-width: 600px;
 }
 
+/* Le visuel de base */
 #visual {
     width: 100%;
-    max-width: 500px;
+    height: auto; /* Laisser l'image se redimensionner tout en conservant ses proportions */
 }
 
+/* Le cadre de la photo à ajuster */
 #photoContainer {
     position: absolute;
-    top: 30%; /* Ajustez cette valeur pour l'emplacement de la photo */
-    left: 40%; /* Ajustez cette valeur pour l'emplacement de la photo */
-    width: 100px; /* Largeur de la photo */
-    height: 100px; /* Hauteur de la photo */
-    overflow: hidden;
-    border-radius: 50%; /* Si tu veux un cercle pour la photo */
-    border: 3px solid white;
+    top: 99px;  /* Position du cadre depuis le haut */
+    left: 478px;  /* Position du cadre depuis la gauche */
+    width: 512px;  /* Largeur du cadre photo */
+    height: 678px; /* Hauteur du cadre photo */
+    overflow: hidden;  /* Empêche l'image de déborder du cadre */
+    border-radius: 5px;  /* Si tu veux un cadre avec des bords arrondis */
+    border: 3px solid white; /* Bordure du cadre */
 }
 
+/* Style pour l'image téléchargée dans le cadre */
+#photoContainer img {
+    width: 100%; /* La photo occupe toute la largeur du cadre */
+    height: 100%; /* La photo occupe toute la hauteur du cadre */
+    object-fit: cover; /* Redimensionne l'image pour remplir le cadre sans déformation */
+    object-position: center; /* Centre l'image à l'intérieur du cadre */
+}
+
+/* Bouton de téléchargement */
 #downloadBtn {
     margin-top: 20px;
     padding: 10px 20px;
@@ -37,4 +54,9 @@ body {
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
+}
+
+#downloadBtn:hover {
+    background-color: #45a049;
 }

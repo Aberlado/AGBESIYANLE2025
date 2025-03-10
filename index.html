@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campagne de Participation - AGBESIYANLE</title>
+    <title>Campagne AGBESIYANLE 2025</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,16 +17,25 @@
         
         <!-- L'image de base du visuel -->
         <div class="campaign-visual">
-            <img src="CAMPAGNE_AGBESIYANELE.png" id="visual" alt="Visuel de campagne">
+            <img src="visuel_de_base.png" id="visual" alt="Visuel de campagne">
             <div id="photoContainer">
                 <!-- La photo de l'utilisateur sera ajustée ici -->
             </div>
         </div>
         
         <!-- Bouton pour télécharger le visuel final -->
-        <button id="downloadBtn">Télécharger votre visuel</button>
+        <button id="downloadBtn">Télécharger</button>
     </div>
     
+    <!-- Fenêtre Pop-Up -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h3>Félicitations !</h3>
+            <p>Votre visuel a été généré avec succès.</p>
+            <button id="closePopup">Fermer</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
